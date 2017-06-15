@@ -1,0 +1,10 @@
+spring:
+  redis:
+    host: 192.168.12.134
+    password: 123456
+    port: 6379
+#    database: 2
+    pool:
+      max-active: -1
+  thymeleaf:
+    cache: false
