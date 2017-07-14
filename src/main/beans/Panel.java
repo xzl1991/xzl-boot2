@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 /**
  * Created by ${xzl} on 2017/7/5.
  * <P>生成gridpanel</P>
@@ -16,7 +18,8 @@ public class Panel {
     private  String id;
     private  String region;
     private ViewConfig viewConfig;
-    private Columns columns;
+    private String columns;
+//    private List<Columns> columns;
     private  String store;
     private  boolean rootVisible;
     private  boolean columnLines;
