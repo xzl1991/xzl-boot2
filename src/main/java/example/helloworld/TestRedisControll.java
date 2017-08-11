@@ -8,6 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
@@ -53,5 +54,24 @@ public class TestRedisControll {
         int num2 =  (int)redisTemplate.opsForValue().get("number2");
         System.out.println(DBContextHolder.getDbType()+" : "+name+","+num+","+redisTemplate.opsForValue().get("number1")+","+num2);
         return stringRedisTemplate.keys("*");
+    }
+    @RequestMapping(value="/rmKey/{key}",method={ RequestMethod.POST})
+    @ResponseBody
+//    @MyAnnotation("Mater")
+    public Set removeKey(@PathVariable String key){
+        redisTemplate.delete(key);
+        return stringRedisTemplate.keys("*");
+    }
+    /**
+     * 关联删除
+     * */
+    @RequestMapping(value = "relDelKey/{rel}",method = {RequestMethod.POST})
+    @ResponseBody
+    public String relDelKey(@PathVariable("rel")String rel){
+//        String sKey = CommonConstants.APP_REDIS_KEY_RELATION_PREFIX.concat(rel);
+        Set<String> ks = stringRedisTemplate.opsForSet().members(rel);
+        redisTemplate.delete(ks);
+//        redisTemplate.delete(sKey);
+        return "删除完成";
     }
 }

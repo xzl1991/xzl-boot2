@@ -16,6 +16,9 @@ config set stop-writes-on-bgsave-error no
 四。通过 redis session共享
 查看redis 上的 详细信息
  HGETALL spring:session:sessions:ffce8df0-d540-44b7-8dd0-c6c0d2c1d7f8
+ 
+五.尝试生成ext 
+ 
 
 
 
