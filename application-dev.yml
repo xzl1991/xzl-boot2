@@ -34,7 +34,7 @@ logging:
     root: debug
 spring:
   redis:
-    host: 192.168.12.134
+    host: 192.168.1.1
     password: 123456
     port: 6379
 #    database: 2
