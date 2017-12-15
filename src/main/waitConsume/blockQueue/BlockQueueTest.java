@@ -5,12 +5,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * Created by ${xzl} on 2017/9/30.
+ * LinkedBlockingQueue 模拟生产消费
  */
 public class BlockQueueTest {
     // 仓库最大存储量
     private final int MAX_SIZE = 10;
     //共享载体
-    private LinkedBlockingQueue<String>  linkedBlockingQueue = new LinkedBlockingQueue(5);
+    private static  volatile LinkedBlockingQueue<String>  linkedBlockingQueue = new LinkedBlockingQueue(10);
     //生产产品
     public void create(int num){
         if(linkedBlockingQueue.size()>=MAX_SIZE){
@@ -49,34 +50,50 @@ public class BlockQueueTest {
     }
 
     private class Provide implements Runnable{
+        private LinkedBlockingQueue<String> linkedBlockingQueue;
+        public Provide(LinkedBlockingQueue<String> dataQueue){
+            this.linkedBlockingQueue = dataQueue;
+        }
         @Override
         public void run() {
             try {
-                if(linkedBlockingQueue.size()>=MAX_SIZE){
-                    System.out.println("----boom----满了放不下了！！");
-                }
-                linkedBlockingQueue.put("测试 :"+ UUID.randomUUID());
+             while(true){
+                 if(linkedBlockingQueue.size()>=MAX_SIZE){
+                     System.out.println("----boom----满了放不下了！！");
+                 }
+                 System.out.println("生产中---【现仓储量为】:" + linkedBlockingQueue.size());
+                 linkedBlockingQueue.put("产品号 :"+ UUID.randomUUID());
+                 Thread.sleep(1500);
+             }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
     private  class Consume implements Runnable{
+        private LinkedBlockingQueue<String> linkedBlockingQueue;
+        public Consume(LinkedBlockingQueue<String> dataQueue){
+            this.linkedBlockingQueue = dataQueue;
+        }
         @Override
         public void run() {
             try {
-                if(linkedBlockingQueue.isEmpty()){
-                    System.out.println("----空了！！");
+                while (true){//必须
+                    if(linkedBlockingQueue.isEmpty()){
+                        System.out.println("----仓库空了！！");
+                    }
+                    System.out.println("消费中---【现仓储量为】:" + linkedBlockingQueue.size());
+                    System.out.println("正在消费："+linkedBlockingQueue.take());
+                    Thread.sleep(3500);
                 }
-                System.out.println("正在消费："+linkedBlockingQueue.take());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
     public static void main(String[] args) throws InterruptedException {
-        Consume consume = new BlockQueueTest().new Consume();
-        Provide provide = new BlockQueueTest().new Provide();
+        Consume consume = new BlockQueueTest().new Consume(linkedBlockingQueue);
+        Provide provide = new BlockQueueTest().new Provide(linkedBlockingQueue);
         new Thread(consume,"开始消费").start();
         new Thread(provide,"开始生产").start();
 //        BlockQueueTest test  = new BlockQueueTest();
