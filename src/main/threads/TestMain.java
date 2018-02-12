@@ -1,7 +1,4 @@
-package main.threads;
-
 import main.threads.runnable.CountExample;
-import main.threads.runnable.Data;
 import main.threads.runnable.DesExample;
 
 /**

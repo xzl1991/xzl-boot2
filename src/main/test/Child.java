@@ -1,5 +1,4 @@
-package main.test;
-
+package test;
 /**
  * Created by ${xzl} on 2017/10/25.
  */
@@ -8,7 +7,7 @@ package main.test;
  * <p>
  * Created by lxk on 2017/4/20
  */
-public class Child extends Parent {
+public class Child extends main.test.Parent {
 
 //    private String stringInChild = initStringInChild();
 //    private static String staticStringInChild = initStaticStringInChild();
