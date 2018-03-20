@@ -2,6 +2,7 @@ package main.waitConsume;
 
 import main.waitConsume.Producer.Consumer;
 import main.waitConsume.Producer.Producer;
+import main.waitConsume.SharedStack;
 
 /**
  * Created by ${xzl} on 2017/9/25.
@@ -9,7 +10,7 @@ import main.waitConsume.Producer.Producer;
  */
 public class TestConsume   {
     public static void main(String[] args) {
-        SharedStack sharedStack = new SharedStack(10);
+       SharedStack sharedStack = new SharedStack(10);
         Consumer consumer = new Consumer(sharedStack);
         Producer producer = new Producer(sharedStack);
         new Thread(consumer,"   消费者开始消费").start();

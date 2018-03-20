@@ -1,5 +1,4 @@
-package com.gomefinance.ermas;
-
+package TestEnumsExcel;
 /**
  */
 

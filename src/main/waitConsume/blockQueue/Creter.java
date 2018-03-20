@@ -1,3 +1,4 @@
+//package waitConsume.blockQueue;
 package main.waitConsume.blockQueue;
 
 /**
@@ -5,7 +6,7 @@ package main.waitConsume.blockQueue;
  */
 public class Creter {
     BlockQueueTest test;
-    public Creter(BlockQueueTest test){
+    public Creter(main.waitConsume.blockQueue.BlockQueueTest test){
         this.test = test;
     }
     public  void create(int num){
