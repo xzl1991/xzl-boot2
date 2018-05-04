@@ -17,8 +17,8 @@ import static utils.DecimalTrans.getPrettyNumber;
  */
 public class UberDistance {
     public static void main(String[] args) {
-        JSONArray userArray = ReadDataFromText.readText("C:\\Users\\Administrator\\Desktop\\新建文件夹 (3)\\Data\\Car\\person.txt");
-        JSONArray carArray = ReadDataFromText.readText("C:\\Users\\Administrator\\Desktop\\新建文件夹 (3)\\Data\\Car\\car.txt");
+        JSONArray userArray = ReadDataFromText.readText("C:\\Users\\Administrator\\Desktop\\新建文件夹 (3)\\Data\\Car\\person.txt"," ");
+        JSONArray carArray = ReadDataFromText.readText("C:\\Users\\Administrator\\Desktop\\新建文件夹 (3)\\Data\\Car\\car.txt"," ");
         Map<Object,String> resultMap = new TreeMap<>();
         String[] user;
         String[] cars;

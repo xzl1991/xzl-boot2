@@ -1,4 +1,4 @@
-package main.waitConsume;
+package waitConsume;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;

@@ -3,6 +3,7 @@ package utils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -10,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.util.*;
 
 /**
  * Created by xzl on 2017/12/6.
@@ -18,14 +20,18 @@ import java.nio.channels.FileChannel;
  * @date 2017/12/6  10:14.
  */
 public class ReadDataFromText {
-    public  static JSONArray readText(final String filePath){
+    public  static JSONArray readText(final String filePath,final String split){//分隔符
         // BufferedReader:从字符输入流中读取文本，缓冲各个字符，从而实现字符、数组和行的高效读取。
         JSONArray jsonArray = new JSONArray();
-        try (BufferedReader bufReader = new BufferedReader(new FileReader(new File(filePath)))){
+        try ( InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(filePath)),"UTF-8");BufferedReader bufReader = new BufferedReader(isr)){
             String temp ;
             while ((temp = bufReader.readLine())!=null){
-                if(temp.indexOf(" ")>-1){
-                    jsonArray.add(temp.split(" "));
+                //过滤注解
+                if(temp.indexOf("#")>-1||temp.indexOf("//")>-1){
+                    continue;
+                }
+                if(temp.indexOf(split)>-1){
+                    jsonArray.add(temp.split(split));
                 }
             }
         }catch (Exception e){
@@ -102,9 +108,41 @@ public class ReadDataFromText {
         //把outStream里的数据写入内存
         return outStream.toByteArray();
     }
+
+    public void createDictionary(List list) throws IOException {
+        Map<String, String> titles = new LinkedHashMap<String,String>(){{
+            put("DIC_TYPE","DIC_TYPE");
+            put("DATA_TYPE","DATA_TYPE");
+            put("DIC_KEY","DIC_KEY");
+            put("DIC_VALUE","DIC_VALUE");
+            put("DIC_ORDER","DIC_ORDER");
+            put("DESCRIPTION","DESCRIPTION");
+        }};
+        SXSSFWorkbook wb = null;
+        FileOutputStream ouputStream = new FileOutputStream(new File("D:/city.xlsx"));
+        try {
+            wb = ExcelUtil.mapToExcel(titles , list);
+            String filename = "Dictionary" + new Date() + ".xlsx";
+//            wb.create
+        }
+        finally {
+            if(wb!=null){
+                wb.close();
+            }
+            if(ouputStream != null){
+                ouputStream.flush();
+                ouputStream.close();
+            }
+
+        }
+    }
     public static void main(String args[]) {
+        //空格隔开
 //        JSONArray jsonArray = readText("C:\\Users\\Administrator\\Desktop\\新建文件夹 (3)\\Data\\Car\\car.txt");
-        JSONArray jsonArray = readByHttp("http://www.qlcoder.com/uploads/passenger.txt","GET");
+        //=隔开
+        JSONArray jsonArray = readText("E:\\国美文件\\系统文件\\省市区编码.txt","=");
+        Arrays.asList(jsonArray);
+//        JSONArray jsonArray = readByHttp("http://www.qlcoder.com/uploads/passenger.txt","GET");
         System.out.println("===================");
     }
 }

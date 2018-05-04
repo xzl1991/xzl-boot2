@@ -1,8 +1,8 @@
-package threads;
+package main.threads;
 
-import threads.runnable.CountExample;
-import threads.runnable.Data;
-import threads.runnable.DesExample;
+import main.threads.runnable.CountExample;
+import main.threads.runnable.Data;
+import main.threads.runnable.DesExample;
 
 /**
  * Created by ${xzl} on 2017/9/18.

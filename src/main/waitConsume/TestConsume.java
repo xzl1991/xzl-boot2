@@ -1,8 +1,7 @@
-package main.waitConsume;
+package waitConsume;
 
-import main.waitConsume.Producer.Consumer;
-import main.waitConsume.Producer.Producer;
-import main.waitConsume.SharedStack;
+import waitConsume.Producer.Consumer;
+import waitConsume.Producer.Producer;
 
 /**
  * Created by ${xzl} on 2017/9/25.
