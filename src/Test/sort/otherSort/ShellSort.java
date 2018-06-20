@@ -16,7 +16,7 @@ public class ShellSort extends BaseSort{
         ShellSort shellSort = new ShellSort();
         shellSort.shellSort(val);
 //        int[] val = {32,43,23,13,11};
-        shellSort.shellSort(val);
+//        shellSort.shellSort(val);
 //        sort(val);
 //        shellSortMax(val);
         printLn(val);

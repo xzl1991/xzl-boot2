@@ -20,6 +20,75 @@ import java.util.*;
  * @date 2017/12/6  10:14.
  */
 public class ReadDataFromText {
+
+    public  static JSONArray readTextJSONOBJECT(final String filePath,final String split){//分隔符
+        // BufferedReader:从字符输入流中读取文本，缓冲各个字符，从而实现字符、数组和行的高效读取。
+        JSONArray jsonArray = new JSONArray();
+        try ( InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(filePath)),"UTF-8");BufferedReader bufReader = new BufferedReader(isr)){
+            String temp ;
+            JSONObject jsonObject ;
+            String key;
+            String value;
+            String province = null;
+            while ((temp = bufReader.readLine())!=null){
+                jsonObject = new JSONObject();
+                //过滤注解
+                if(temp.indexOf("#")>-1||temp.indexOf("//")>-1){
+                    continue;
+                }
+                if(temp.indexOf(split)>-1){
+                    key = temp.split(split)[0];
+                    value = temp.split(split)[1];
+                    jsonObject.put("DIC_KEY",key);
+                    jsonObject.put("DIC_VALUE",value);
+                    if(Integer.parseInt(key)%10000 == 0){
+                        province = key;
+                    }
+                    checkProvince(Integer.parseInt(key),value,province,jsonObject);
+                    jsonArray.add(jsonObject);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  jsonArray;
+    }
+    //检查省份
+    private static void checkProvince(int code,String value,String province,JSONObject jsonObject){
+        if ( code%10000 == 0){//新的省份
+            jsonObject.put("DIC_TYPE","SYSTEM");
+            jsonObject.put("DATA_TYPE","Province");
+            jsonObject.put("DESCRIPTION",value);
+            return;
+        }
+        jsonObject.put("DIC_TYPE","BUSINESS");
+        jsonObject.put("DATA_TYPE",province);
+        jsonObject.put("DESCRIPTION",value);
+    }
+    public  static JSONObject readTextObj(final String filePath,final String split){//分隔符
+        // BufferedReader:从字符输入流中读取文本，缓冲各个字符，从而实现字符、数组和行的高效读取。
+        JSONObject jsonObject = new JSONObject();
+        try ( InputStreamReader isr = new InputStreamReader(new FileInputStream(new File(filePath)),"UTF-8");BufferedReader bufReader = new BufferedReader(isr)){
+            String temp ;
+            String key;
+            String value;
+            while ((temp = bufReader.readLine())!=null){
+                //过滤注解
+                if(temp.indexOf("#")>-1||temp.indexOf("//")>-1){
+                    continue;
+                }
+                if(temp.indexOf(split)>-1){
+                    key = temp.split(split)[0];
+                    value = temp.split(split)[1];
+                    jsonObject.put(key,value);
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return  jsonObject;
+    }
+
     public  static JSONArray readText(final String filePath,final String split){//分隔符
         // BufferedReader:从字符输入流中读取文本，缓冲各个字符，从而实现字符、数组和行的高效读取。
         JSONArray jsonArray = new JSONArray();
@@ -109,7 +178,7 @@ public class ReadDataFromText {
         return outStream.toByteArray();
     }
 
-    public void createDictionary(List list) throws IOException {
+    public static void createDictionary(List list) throws IOException {
         Map<String, String> titles = new LinkedHashMap<String,String>(){{
             put("DIC_TYPE","DIC_TYPE");
             put("DATA_TYPE","DATA_TYPE");
@@ -119,10 +188,12 @@ public class ReadDataFromText {
             put("DESCRIPTION","DESCRIPTION");
         }};
         SXSSFWorkbook wb = null;
-        FileOutputStream ouputStream = new FileOutputStream(new File("D:/city.xlsx"));
+        FileOutputStream ouputStream = null ;
         try {
             wb = ExcelUtil.mapToExcel(titles , list);
-            String filename = "Dictionary" + new Date() + ".xlsx";
+            String filename = "city.xlsx";
+            ouputStream = new FileOutputStream(new File("D:/"+filename));
+            wb.write(ouputStream);
 //            wb.create
         }
         finally {
@@ -140,8 +211,14 @@ public class ReadDataFromText {
         //空格隔开
 //        JSONArray jsonArray = readText("C:\\Users\\Administrator\\Desktop\\新建文件夹 (3)\\Data\\Car\\car.txt");
         //=隔开
-        JSONArray jsonArray = readText("E:\\国美文件\\系统文件\\省市区编码.txt","=");
-        Arrays.asList(jsonArray);
+        JSONArray jsonArray = readTextJSONOBJECT("E:\\国美文件\\系统文件\\省市区编码.txt","=");
+        JSONObject object = readTextObj("E:\\国美文件\\系统文件\\省市区编码.txt","=");
+        try {
+            System.out.println("-------------");
+//            createDictionary(jsonArray);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 //        JSONArray jsonArray = readByHttp("http://www.qlcoder.com/uploads/passenger.txt","GET");
         System.out.println("===================");
     }

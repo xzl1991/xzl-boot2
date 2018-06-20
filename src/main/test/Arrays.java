@@ -1,4 +1,4 @@
-package main.test;
+package test;
 
 /**
  * Created by ${xzl} on 2017/10/24.

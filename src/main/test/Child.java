@@ -7,7 +7,7 @@ package test;
  * <p>
  * Created by lxk on 2017/4/20
  */
-public class Child extends main.test.Parent {
+public class Child extends test.Parent {
 
 //    private String stringInChild = initStringInChild();
 //    private static String staticStringInChild = initStaticStringInChild();

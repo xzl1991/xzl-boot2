@@ -13,6 +13,14 @@
 	</parent>
 	<dependencyManagement>
 		<dependencies>
+			<!--region  markdow 生成 HTML-->
+			<!--markdown to html-->
+			<dependency>
+				<groupId>org.pegdown</groupId>
+				<artifactId>pegdown</artifactId>
+				<version>1.2.1</version>
+			</dependency>
+			<!--endregion -->
 			<dependency>
 				<groupId>org.apache.poi</groupId>
 				<artifactId>poi</artifactId>
