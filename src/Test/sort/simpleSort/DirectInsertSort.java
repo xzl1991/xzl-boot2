@@ -10,7 +10,7 @@ import sort.BaseSort;
  */
 public class DirectInsertSort extends BaseSort{
     public static void main(String[] args) {
-        int[] val = {32,43,23,13,11};
+        int[] val = {9,13,0,1,2,5,8,4,7,6};
         DirectInsertSort direct = new  DirectInsertSort();
         direct.insertSort(val);
         printLn(val);

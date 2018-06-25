@@ -10,7 +10,8 @@ import sort.BaseSort;
 public class QuickSort extends BaseSort {
     public static void main(String[] args) {
         int[] val = {46 ,30 ,82 ,90 ,56 ,17 ,95,15};
-        new QuickSort().quickSort(val,0,val.length-1);
+//        new QuickSort().quickSort(val,0,val.length-1);
+        new QuickSort().quickSort1(val,0,val.length-1);
         printLn(val);
     }
     public void quickSort(int[] arr,int low,int hight){

@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * Created by ${xzl} on 2017/8/29.
- *
+ *http://www.runoob.com/design-pattern/observer-pattern.html
  * 可以和适配器模式组合使用
  */
 public class Uploader1 extends People implements MyInterface{
