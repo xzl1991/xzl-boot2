@@ -84,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FinalizedTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FinalizedTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Test/systemConcurrent/FinalizedTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+            <state relative-caret-position="261">
+              <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
               <folding>
                 <element signature="e#136#137#0" expanded="true" />
                 <element signature="e#162#163#0" expanded="true" />
@@ -111,11 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ReentrantReadWriteLock.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ReentrantReadWriteLock.java" pinned="false" current-in-tab="false">
         <entry file="jar://D:/WorkSoft/jdk/jdk1.8.0_162/src.zip!/java/util/concurrent/locks/ReentrantReadWriteLock.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="428">
-              <caret line="343" column="70" lean-forward="true" selection-start-line="343" selection-start-column="70" selection-end-line="343" selection-end-column="70" />
+              <caret line="343" column="45" lean-forward="false" selection-start-line="343" selection-start-column="45" selection-end-line="343" selection-end-column="45" />
               <folding>
                 <element signature="e#10079#10080#0" expanded="true" />
                 <element signature="e#10135#10136#0" expanded="true" />
@@ -483,6 +483,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Test" type="462c0819:PsiDirectoryNode" />
               <item name="systemConcurrent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="spring-session-example" type="b2602c69:ProjectViewProjectNode" />
+              <item name="testSession" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Test" type="462c0819:PsiDirectoryNode" />
+              <item name="systemConcurrent" type="462c0819:PsiDirectoryNode" />
+              <item name="FinalizedTest.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
             </path>
             <path>
               <item name="spring-session-example" type="b2602c69:ProjectViewProjectNode" />
@@ -1426,7 +1434,7 @@
       <workItem from="1525918334327" duration="2861000" />
       <workItem from="1526610663086" duration="288000" />
       <workItem from="1529408215679" duration="2257000" />
-      <workItem from="1529459369091" duration="52716000" />
+      <workItem from="1529459369091" duration="52943000" />
     </task>
     <servers />
   </component>
@@ -1463,7 +1471,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="801879000" />
+    <option name="totallyTimeSpent" value="802106000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1476,6 +1484,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6352201" sideWeight="0.5130152" order="7" side_tool="true" content_ui="tabs" />
@@ -1498,7 +1507,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4366864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36855346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43905327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2138229" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25161988" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32988003" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2643,21 +2652,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Test/systemConcurrent/FinalizedTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding>
-            <element signature="e#136#137#0" expanded="true" />
-            <element signature="e#162#163#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#549#550#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/WorkSoft/jdk/jdk1.8.0_162/src.zip!/java/util/concurrent/locks/ReadWriteLock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -2680,7 +2674,7 @@
     <entry file="jar://D:/WorkSoft/jdk/jdk1.8.0_162/src.zip!/java/util/concurrent/locks/ReentrantReadWriteLock.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="428">
-          <caret line="343" column="70" lean-forward="true" selection-start-line="343" selection-start-column="70" selection-end-line="343" selection-end-column="70" />
+          <caret line="343" column="45" lean-forward="false" selection-start-line="343" selection-start-column="45" selection-end-line="343" selection-end-column="45" />
           <folding>
             <element signature="e#10079#10080#0" expanded="true" />
             <element signature="e#10135#10136#0" expanded="true" />
@@ -2690,6 +2684,21 @@
             <element signature="class#WriteLock#0;class#ReentrantReadWriteLock#0" expanded="false" />
             <element signature="method#toString#0;class#ReentrantReadWriteLock#0" expanded="false" />
             <element signature="initializer##0;class#ReentrantReadWriteLock#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Test/systemConcurrent/FinalizedTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="24" column="16" lean-forward="true" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="e#136#137#0" expanded="true" />
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#549#550#0" expanded="true" />
+            <element signature="e#591#592#0" expanded="true" />
           </folding>
         </state>
       </provider>
