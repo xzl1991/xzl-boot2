@@ -1,5 +1,6 @@
 package threads;
 
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -11,6 +12,18 @@ public class MonkeyTest {
         AtomicInteger integer = new AtomicInteger(900);
         MonkeyA monkeyA = new MonkeyA(integer);
         MonkeyB monkeyB = new MonkeyB(integer);
+        //int corePoolSize,
+//        int maximumPoolSize,
+//        long keepAliveTime,
+//        TimeUnit unit,
+//        BlockingQueue<Runnable> workQueue
+        ExecutorService executorService = Executors.newFixedThreadPool(4);
+         executorService = Executors.newCachedThreadPool();
+        executorService.execute(monkeyA);
+        ThreadPoolExecutor poolExecutor =
+                new ThreadPoolExecutor(5,10,10000,TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+        poolExecutor.allowCoreThreadTimeOut(true);
+        poolExecutor.execute(monkeyA);
         new Thread(monkeyB,"猴子B:").start();
         new Thread(monkeyA,"猴子A:").start();
     }

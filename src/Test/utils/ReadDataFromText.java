@@ -190,7 +190,7 @@ public class ReadDataFromText {
         SXSSFWorkbook wb = null;
         FileOutputStream ouputStream = null ;
         try {
-            wb = ExcelUtil.mapToExcel(titles , list);
+            wb = null;//ExcelUtil.mapToExcel(titles , list);
             String filename = "city.xlsx";
             ouputStream = new FileOutputStream(new File("D:/"+filename));
             wb.write(ouputStream);

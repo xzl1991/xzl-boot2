@@ -24,9 +24,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="1.2" level="project" />
     <orderEntry type="library" name="fastjson" level="project" />
     <orderEntry type="library" name="Maven: org.apache.curator:curator-recipes:2.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.curator:curator-framework:2.8.0" level="project" />
@@ -90,5 +89,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: stax:stax-api:1.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: com.github.virtuald:curvesapi:1.04" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.7" level="project" />
+    <orderEntry type="library" name="1.2" level="project" />
   </component>
 </module>
