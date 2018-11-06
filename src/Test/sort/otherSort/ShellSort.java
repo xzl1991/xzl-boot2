@@ -14,13 +14,16 @@ import java.util.Arrays;
 public class ShellSort extends BaseSort{
     public static void main(String[] args) {
         ShellSort shellSort = new ShellSort();
-        shellSort.shellSort(val);
+//        shellSort.shellSort(val);
+        shellSortMax(val);
 //        int[] val = {32,43,23,13,11};
 //        shellSort.shellSort(val);
 //        sort(val);
 //        shellSortMax(val);
         printLn(val);
     }
+
+    // 1.
     public void shellSort(int[] arr){
         int increment = arr.length/2;// 希尔增量
         int a = 0;
@@ -52,9 +55,11 @@ public class ShellSort extends BaseSort{
        }
         System.out.println("循环次数: "+a);
     }
+    // 2.
     public static void shellSortMax(int[] data) {
         // 计算出最大的h值
         int h = 1;
+        int a = 0;
         while (h <= data.length / 3) {
             h = h * 3 + 1;
         }
@@ -66,6 +71,7 @@ public class ShellSort extends BaseSort{
                     while (j >= 0 && data[j] > tmp) {
                         data[j + h] = data[j];
                         j -= h;
+                        a++;
                     }
                     data[j + h] = tmp;
 //                    printLn(data);
@@ -73,7 +79,9 @@ public class ShellSort extends BaseSort{
             }
             // 计算出下一个h值
             h = (h - 1) / 3;
+
         }
+        System.out.println("循环次数: "+a);
     }
     /**
      * 3.
@@ -83,6 +91,7 @@ public class ShellSort extends BaseSort{
 //       while ()
     }
     /**
+     *  3.
      * 希尔排序 针对有序序列在插入时采用交换法
      * @param arr
      */
@@ -102,6 +111,7 @@ public class ShellSort extends BaseSort{
     }
 
     /**
+     * 4.
      * 希尔排序 针对有序序列在插入时采用移动法。
      * @param arr
      */

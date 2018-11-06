@@ -8,6 +8,8 @@ import DesignModel.Factory.AbFactory.impl.Product1;
 
 /**
  * Created by ${xzl} on 2017/8/28.
+ *
+ * UML 图： https://www.cnblogs.com/qiaoconglovelife/p/5750290.html
  */
 public class TestMain {
     public static void main(String[] args) {

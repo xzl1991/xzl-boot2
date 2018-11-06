@@ -5,8 +5,7 @@ import sun.misc.ProxyGenerator;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 /**
  * Created by ${xzl} on 2017/8/23.
@@ -28,7 +27,7 @@ public class DynamicProxy implements InvocationHandler{
         return result;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchMethodException {
 //        //只要你传入就可以强转成功
 //        MyInterface object =  (MyInterface) Proxy.newProxyInstance(
 //                ClassLoader.getSystemClassLoader(),//ClassLoader
@@ -40,6 +39,24 @@ public class DynamicProxy implements InvocationHandler{
 //        object.method2();
 //        object.method3();
 //
+        //生成$Proxy0的class文件
+        System.getProperties().put("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
+        //获取动态代理类
+        Class proxyClazz = Proxy.getProxyClass(MyInterface.class.getClassLoader(),MyInterface.class);
+        //获得代理类的构造函数，并传入参数类型InvocationHandler.class
+        Constructor constructor = proxyClazz.getConstructor(InvocationHandler.class);
+        //通过构造函数来创建动态代理对象，将自定义的InvocationHandler实例传入
+        try {
+            MyInterface iHello = (MyInterface) constructor.newInstance(new ProxyJdk(new MyClass1()));
+            iHello.method1();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        //通过代理对象调用目标方法
 //        //2.jdk 接口动态代理
         MyInterface myClass1 = new MyClass1();
         MyInterface proxyJdk = (MyInterface) new ProxyJdk(myClass1).getProxy();
