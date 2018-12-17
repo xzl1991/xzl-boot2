@@ -1,0 +1,66 @@
+#端口号
+server:
+  port: 8089
+#springboot 监控配置
+management:
+  port: 7725
+  context-path: /admin
+  security:
+    enabled: true #让安全验证无效
+#    roles: SUPERUSER
+    roles: ACTUATOR
+security:
+  user:
+    name: admin
+    password: 123456
+    role: ACTUATOR
+  basic:
+    enabled: true
+    path: /admin
+endpoints:
+  beans:
+    sensitive: false
+  trace:
+    sensitive: false
+  metrics:
+    sensitive: false
+info:
+  app:
+    name: "xzl-boot2" #从pom.xml中获取
+    description: "Parent pom providing dependency and plugin management for applications
+		built with Maven"
+    version: "1.0-SNAPSHOT"
+    spring-boot-version: "MavenProject: org.springframework.boot:spring-boot-starter-parent:2.0.3.RELEASE @ "
+email:
+    enabled: false
+    hostName: smtp.139.com
+    smtpPort: 25
+    userName: 1192373005@qq.com
+    password: xxx
+    SSLOnConnect: true
+    from: 1192373005@qq.com
+    group:
+      developers: 1192373005@qq.com
+      olg: 1192373005@qq.com
+#elastic-job定义
+elastic-job:
+  regCenter:
+    serverList: 122222:2181
+    namespace: ermasConfig_xzl
+#日志位置
+logging:
+  file: /Users/selfData/temp/logs/xzl-web
+  level:
+    root: info
+interface:
+  url: 123,456,789
+spring:
+  redis:
+    host: 1.1.1.1
+    password: 123456
+    port: 6379
+    database: 2
+    pool:
+      max-active: -1
+  thymeleaf:
+    cache: false
