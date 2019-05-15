@@ -26,11 +26,10 @@ endpoints:
     sensitive: false
 info:
   app:
-    name: "xzl-boot2" #从pom.xml中获取
-    description: "Parent pom providing dependency and plugin management for applications
-		built with Maven"
-    version: "1.0-SNAPSHOT"
-    spring-boot-version: "MavenProject: org.springframework.boot:spring-boot-starter-parent:2.0.3.RELEASE @ "
+    name: "@project.artifactId@" #从pom.xml中获取
+    description: "@project.description@"
+    version: "@project.version@"
+    spring-boot-version: "@project.parent@"
 email:
     enabled: false
     hostName: smtp.139.com

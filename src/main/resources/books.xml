@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql>
+    <!--<book id="001">-->
+        <!--<title>Harry Potter</title>-->
+        <!--<author>J K. Rowling</author>-->
+    <!--</book>-->
+    <!--<book id="002">-->
+        <!--<title>Learning XML</title>-->
+        <!--<author>Erik T. Ray</author>-->
+    <!--</book>-->
+    <ssss>
+        select * from st,tb1,
+        join tb5 on tb1.id = tb5.id,
+        (
+        select
+        * from
+        table2 t2
+        left join Tb3 t3 on t.id = t1.id
+        left join Tb4 t4 on t.id = t1.id
+        ) t1,tb5 s on s.id =t1.id
+        where
+        t1.id in (select split('',''))
+        sql = '11'
+    </ssss>
+    <ssss1>
+        update upTab set('1');
+    </ssss1>
+    <ssss1>
+        delete from delTab ;
+    </ssss1>
+</sql>
